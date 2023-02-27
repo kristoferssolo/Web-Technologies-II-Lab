@@ -13,13 +13,15 @@ function print_alphabet() {
     }
 }
 
+
 function get_first_monday($year) {
-    for ($day=1; $day<=7 ;$day++){
+    for ($day = 1; $day <= 7; $day++){
         $date = mktime(0, 0, 0, 1, $day, $year);
         if (date("D", $date) === "Mon")
             return $date;
     }
 }
+
 
 function ordinal($number) {
     if ($number == 1) {
@@ -44,11 +46,10 @@ echo date("d-m-Y", get_first_monday(2022))."\n";
 echo date("d-m-Y", get_first_monday(2021))."\n";
 echo "\n";
 
-$years = [2023,2030,2016,2017];
+$years = [2023, 2030, 2016, 2017];
 foreach ($years as $year) {
     $date = ordinal((int)date("d", get_first_monday($year)));
     echo "The first Monday of year {$year} is {$date} January\n";
 }
 
-?>   
-
+?>

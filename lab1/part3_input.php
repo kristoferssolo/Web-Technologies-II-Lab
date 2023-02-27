@@ -15,6 +15,7 @@ if ($start > $end) {
     return;
 }
 
+
 if ($start < 0 || $end < 0) {
     echo "Error. Both numbers should be positive.";
     return;
@@ -29,8 +30,10 @@ function get_first_monday($year) {
     }
 }
 
+
 for ($year = $start; $year <= $end; $year++){
     echo date("d-m-Y", get_first_monday($year))."\n";
 }
+
 ?>
 
