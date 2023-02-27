@@ -1,0 +1,13 @@
+{
+    "name": "kristofers/web-technologies-ii-lab",
+    "description": "Laboratory work for the course \"Web technologies II\"",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kristofers Solo",
+            "email": "kristians.cagulis@pm.me"
+        }
+    ],
+    "require": {}
+}
