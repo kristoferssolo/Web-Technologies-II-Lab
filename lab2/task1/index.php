@@ -15,10 +15,10 @@ while ($row = $manufacturers_handle->fetch_assoc()) {
 
 //TODO: Fill the array of color IDs and titles (e.g. "19" => "Tumši pelēka" (dark grey)) 
 $colors = array();
-$colors_handle = $DB->query("select id, color from manufacturers order by title");
+$colors_handle = $DB->query("select id, title from colors order by title");
 
 while ($row = $colors_handle->fetch_assoc()) {
-    $colors[$row["id"]] = $row["color"];
+    $colors[$row["id"]] = $row["title"];
 }
 
 //TODO: collect and sanitize the current inputs from GET data
