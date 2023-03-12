@@ -1,5 +1,8 @@
 <?php
 require_once "./config.php";
+require "../task2/logger.php";
+$logger = new Logger("/tmp/Web-Technologies-II-Lab/task-c.log");
+$error = false;
 
 //set up Mysql connection;
 $DB = new mysqli(Config::$DBHOST, Config::$DBUSER, Config::$DBPASSWORD, Config::$DBNAME);
@@ -37,7 +40,9 @@ $year = filter_var($year, FILTER_VALIDATE_INT);
 
 //connect to database, make a query, collect results, save it to $results array as objects
 
-if ($manufacturer && $color && $year) {
+if ($manufacturer === false || $color === false || $year === false) {
+    $error = true;
+} else {
     // Query the database with the input parameters
     $stmt = $DB->prepare(
         "SELECT manufacturers.title AS manufacturer, models.title AS model, COUNT(*) AS count
@@ -62,5 +67,7 @@ if ($manufacturer && $color && $year) {
     }
 }
 
-//TODO: complete the view file
+$logger->log("[" . $_SERVER["REMOTE_ADDR"] . "][" . date("c", time()) . "][" . $_SERVER["QUERY_STRINGS"] . "][" . ($error ? "ERROR" : "OK") . "]\n");
+
+//complete the view file
 require "view.php";
