@@ -2,6 +2,7 @@
 require_once "./config.php";
 require "../task2/logger.php";
 $logger = new Logger("/tmp/Web-Technologies-II-Lab/task-c.log");
+$error = "OK";
 
 //set up Mysql connection;
 $DB = new mysqli(Config::$DBHOST, Config::$DBUSER, Config::$DBPASSWORD, Config::$DBNAME);
@@ -39,8 +40,8 @@ $year = filter_var($year, FILTER_VALIDATE_INT);
 
 //connect to database, make a query, collect results, save it to $results array as objects
 
-if ($manufacturer === false || $color === false || $year === false) {
-    $logger->log("ERROR");
+if (!$manufacturer || !$color || !$year) {
+    $error = "ERROR";
 } else {
     // Query the database with the input parameters
     $stmt = $DB->prepare(
@@ -64,8 +65,8 @@ if ($manufacturer === false || $color === false || $year === false) {
     while ($row = $result->fetch_object()) {
         $results[] = $row;
     }
-    $logger->log("OK");
 }
+$logger->log($error);
 
 //complete the view file
 require "view.php";
