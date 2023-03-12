@@ -29,6 +29,5 @@ class Logger
             $this->generateLine($result), FILE_APPEND
         ); 
     } 
- 
- 
 }
+?>
