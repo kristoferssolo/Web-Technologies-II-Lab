@@ -1,5 +1,10 @@
 <?php
+require_once "./config.php";
+
+header("Content-Type:text/plain");
+
 //TODO: set up Mysql connection;
+$DB = new mysqli(Config::$DBHOST, Config::$DBUSER, Config::$DPASSWORD, Config::$DBNAME);
 
 //TODO: Fill the array of manufacturer IDs and titles (e.g. "33" => "Alfa Romeo")
 $manufacturers = array();
@@ -17,4 +22,4 @@ $color = "";
 $results = array();
 
 //TODO: complete the view file
-require("view.php");
+require "view.php";
