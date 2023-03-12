@@ -59,11 +59,19 @@
                 </tr>
 
                 <!-- TODO: Output a table row for each result line -->
+                <?php foreach ($results as $car) { ?>
+                    <tr>
+                        <td><?php echo $car->manufacturer; ?></td>
+                        <td><?php echo $car->model; ?></td>
+                        <td><?php echo $car->count; ?></td>
+                    </tr>
+                <?php } ?>
 
             </table>
             <?php
         }
-        ?>
+        else {echo "Nothing found.";
+        } ?>
     </section>
 
 </body>

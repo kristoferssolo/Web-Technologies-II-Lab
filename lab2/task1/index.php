@@ -37,9 +37,7 @@ $year = filter_var($year, FILTER_VALIDATE_INT);
 
 //connect to database, make a query, collect results, save it to $results array as objects
 
-if ($manufacturer === false || $color === false || $year === false) {
-    $error = "Invalid input parameters";
-} else {
+if ($manufacturer && $color && $year) {
     // Query the database with the input parameters
     $stmt = $DB->prepare(
         "SELECT manufacturers.title AS manufacturer, models.title AS model, COUNT(*) AS count
@@ -58,7 +56,7 @@ if ($manufacturer === false || $color === false || $year === false) {
     $result = $stmt->get_result();
 
     // Collect the query results and save them to $results array as objects.
-    $results = array();
+    $results = [];
     while ($row = $result->fetch_object()) {
         $results[] = $row;
     }
