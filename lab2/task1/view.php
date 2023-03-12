@@ -50,7 +50,7 @@
 
     <section id="main">
         <?php if (sizeof($results) > 0) {
-        ?>
+            ?>
             <table>
                 <tr>
                     <th>Brand/Manufacturer</th>
@@ -61,7 +61,7 @@
                 <!-- TODO: Output a table row for each result line -->
 
             </table>
-        <?php
+            <?php
         }
         ?>
     </section>

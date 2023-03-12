@@ -2,7 +2,7 @@
 require_once "./config.php";
 
 //TODO: set up Mysql connection;
-$DB = new mysqli(Config::$DBHOST, Config::$DBUSER, Config::$DPASSWORD, Config::$DBNAME);
+$DB = new mysqli(Config::$DBHOST, Config::$DBUSER, Config::$DBPASSWORD, Config::$DBNAME);
 
 
 //TODO: Fill the array of manufacturer IDs and titles (e.g. "33" => "Alfa Romeo")
