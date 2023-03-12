@@ -1,33 +1,33 @@
-<?php 
+<?php
 class Logger
 {
-    // ip and GET parameters cannot change during execution 
-    private string $ip; 
-    private string $queryString; 
-    private string $logPath;  // this will be passed to constructor 
+    // ip and GET parameters cannot change during execution
+    private string $ip;
+    private string $queryString;
+    private string $logPath;  // this will be passed to constructor
 
     public function __construct($logPath)
-    { 
-        $this->ip = $_SERVER["REMOTE_ADDR"]; 
-        $this->queryString= $_SERVER["QUERY_STRING"]; 
-        $this->logPath = $logPath;  
-    } 
+    {
+        $this->ip = $_SERVER["REMOTE_ADDR"];
+        $this->queryString= $_SERVER["QUERY_STRING"];
+        $this->logPath = $logPath;
+    }
 
-    protected function generateLine($result) 
-    { 
-        $date = date('c', time()); 
+    protected function generateLine($result)
+    {
+        $date = date('c', time());
         return sprintf(
-            "[%s][%s][%s][%s]\n",  
+            "[%s][%s][%s][%s]\n",
             $this->ip, $date, $this->queryString, $result
-        ); 
+        );
     }
 
     public function log($result)
-    { 
+    {
         file_put_contents(
-            $this->logPath,  
+            $this->logPath,
             $this->generateLine($result), FILE_APPEND
-        ); 
-    } 
+        );
+    }
 }
 ?>
