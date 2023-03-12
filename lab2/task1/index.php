@@ -1,8 +1,6 @@
 <?php
 require_once "./config.php";
 
-header("Content-Type:text/plain");
-
 //TODO: set up Mysql connection;
 $DB = new mysqli(Config::$DBHOST, Config::$DBUSER, Config::$DPASSWORD, Config::$DBNAME);
 
