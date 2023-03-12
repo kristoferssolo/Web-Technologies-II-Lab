@@ -33,8 +33,7 @@
                 <?php } ?>
             </select>
 
-            <select name="color" id="color">
-                <option value="">Pick a color</option>
+            <select name="color" id="color"> <option value="">Pick a color</option>
                 <?php foreach ($colors as $id => $title) { ?>
                     <option value="<?php echo $id; ?>"><?php echo htmlspecialchars($title); ?></option>
                 <?php } ?>
@@ -68,10 +67,7 @@
                 <?php } ?>
 
             </table>
-            <?php
-        }
-        else {echo "Nothing found.";
-        } ?>
+        <?php } ?>
     </section>
 
 </body>
