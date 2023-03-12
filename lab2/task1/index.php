@@ -66,7 +66,7 @@ if ($manufacturer === false || $color === false || $year === false) {
         $results[] = $row;
     }
 }
-$error = "[" . $_SERVER["REMOTE_ADDR"] . "][" . date("c", time()) . "][" . $_SERVER["QUERY_STRINGS"] . "][" . ($error ? "ERROR" : "OK") . "]\n";
+$error = "[" . $_SERVER["REMOTE_ADDR"] . "][" . date("c", time()) . "][" . $_SERVER["QUERY_STRING"] . "][" . ($error ? "ERROR" : "OK") . "]\n";
 $logger->log($error);
 
 //complete the view file
