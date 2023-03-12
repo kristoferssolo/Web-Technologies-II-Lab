@@ -22,18 +22,19 @@ if ($start < 0 || $end < 0) {
 }
 
 
-function get_first_monday($year) {
-    for ($day=1; $day<=7; $day++){
+function getFirstMonday($year)
+{
+    for ($day=1; $day<=7; $day++) {
         $date = mktime(0, 0, 0, 1, $day, $year);
-        if (date("D", $date) === "Mon")
+        if (date("D", $date) === "Mon") {
             return $date;
+        }
     }
 }
 
 
-for ($year = $start; $year <= $end; $year++){
-    echo date("d-m-Y", get_first_monday($year))."\n";
+for ($year = $start; $year <= $end; $year++) {
+    echo date("d-m-Y", getFirstMonday($year))."\n";
 }
 
 ?>
-
