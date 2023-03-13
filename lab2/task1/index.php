@@ -12,7 +12,7 @@ if ($DB->connect_error) {
 }
 
 //Fill the array of manufacturer IDs and titles (e.g. "33" => "Alfa Romeo")
-$manufacturers = array();
+$manufacturers = [];
 $manufacturers_handle = $DB->query("SELECT id, title FROM manufacturers ORDER BY title");
 
 while ($row = $manufacturers_handle->fetch_assoc()) {
@@ -20,7 +20,7 @@ while ($row = $manufacturers_handle->fetch_assoc()) {
 }
 
 //Fill the array of color IDs and titles (e.g. "19" => "Tumši pelēka" (dark grey)) 
-$colors = array();
+$colors = [];
 $colors_handle = $DB->query("select id, title from colors order by title");
 
 while ($row = $colors_handle->fetch_assoc()) {
