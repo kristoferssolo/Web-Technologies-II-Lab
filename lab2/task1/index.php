@@ -28,9 +28,9 @@ while ($row = $colors_handle->fetch_assoc()) {
 }
 
 //collect and sanitize the current inputs from GET data
-$manufacturer = $_GET['manufacturer'] ?? '';
-$color = $_GET['color'] ?? '';
-$year = $_GET['year'] ?? '';
+$color = $_GET["color"];
+$year = $_GET["year"];
+$manufacturer = $_GET["manufacturer"];
 
 // Sanitize and validate input
 $manufacturer = filter_var($manufacturer, FILTER_VALIDATE_INT);
