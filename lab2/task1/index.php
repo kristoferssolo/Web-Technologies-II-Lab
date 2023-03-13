@@ -28,9 +28,14 @@ while ($row = $colors_handle->fetch_assoc()) {
 }
 
 //collect and sanitize the current inputs from GET data
-$manufacturer = filter_input(INPUT_GET, $manufacturer, FILTER_VALIDATE_INT);
-$color = filter_input(INPUT_GET, $color, FILTER_VALIDATE_INT);
-$year = filter_input(INPUT_GET, $year, FILTER_VALIDATE_INT);
+$color = $_GET["color"];
+$year = $_GET["year"];
+$manufacturer = $_GET["manufacturer"];
+
+// Sanitize and validate input
+$manufacturer = filter_var($manufacturer, FILTER_VALIDATE_INT);
+$color = filter_var($color, FILTER_VALIDATE_INT);
+$year = filter_var($year, FILTER_VALIDATE_INT);
 
 
 //connect to database, make a query, collect results, save it to $results array as objects
